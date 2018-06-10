@@ -6,6 +6,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+
 @Entity
 @Table(name = "UserAccount") // postgres doesn't allow table named "user"
 public class User implements Serializable {
@@ -31,6 +32,9 @@ public class User implements Serializable {
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "user")
     private List<Image> images = new ArrayList<Image>();
+
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "user")
+    private List<Comment> comments = new ArrayList<Comment>();
 
 
     public User() { }
