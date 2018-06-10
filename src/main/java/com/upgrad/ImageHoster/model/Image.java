@@ -45,6 +45,9 @@ public class Image implements Serializable{
         inverseJoinColumns = { @JoinColumn(name = "tag_id")})
     private List<Tag> tags = new ArrayList<Tag>();
 
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "image")
+    private List<Comment> comments = new ArrayList<Comment>();
+
 
     public Image() { }
 
@@ -107,6 +110,12 @@ public class Image implements Serializable{
     public List<Tag> getTags() { return tags; }
 
     public void setTags(List<Tag> tags) { this.tags = tags; }
+
+    public List<Comment> getComments() { return comments; }
+
+    public void setComments(List<Comment> comments) {
+        this.comments = comments;
+    }
 
 
 }

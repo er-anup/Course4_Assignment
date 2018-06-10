@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
+import javax.validation.Valid;
 
 import javax.servlet.http.HttpSession;
 import java.io.*;
@@ -79,6 +80,8 @@ public class UserController {
         // database, the hacker cannot see the password for your users
         String passwordHash = hashPassword(password);
         User user = new User(username, passwordHash, photo);
+        System.out.println(user);
+
         userService.register(user);
 
         // We want to create an "currUser" attribute in the HTTP session, and store the user
